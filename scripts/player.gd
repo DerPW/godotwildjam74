@@ -3,12 +3,12 @@ class_name Player
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -500.0
 
 @export var follower: Ghost
 var positions := []
-var delay_time := 5.0
+var delay_time := 3.0
 var step_time := 0.05
 
 func _ready() -> void:
