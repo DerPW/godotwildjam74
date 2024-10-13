@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://bf7qpamhcemoe"]
 
-[ext_resource type="TileSet" uid="uid://dthrj6am1wwde" path="res://assets/tilesets/walls_tileset.tres" id="1_n3m2q"]
+[ext_resource type="TileSet" path="res://assets/tilesets/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://cfw0khfm0krht" path="res://scenes/player.tscn" id="2_ya7ml"]
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
-[ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="4_54mqe"]
+[ext_resource type="PackedScene" path="res://scenes/candle.tscn" id="4_54mqe"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="6_jgib0"]
 
