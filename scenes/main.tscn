@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=13 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
+[ext_resource type="PackedScene" uid="uid://dlu8bglbmfh5w" path="res://scenes/key.tscn" id="3_ndx00"]
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="4_54mqe"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
@@ -63,6 +64,9 @@ position = Vector2(300, 282)
 [node name="Candle4" parent="World" instance=ExtResource("4_54mqe")]
 position = Vector2(455, 138)
 
+[node name="Key" parent="World" instance=ExtResource("3_ndx00")]
+position = Vector2(360, 204)
+
 [node name="God" parent="." node_paths=PackedStringArray("follower") instance=ExtResource("2_cbnwu")]
 z_index = 1
 position = Vector2(162, 264)
@@ -76,6 +80,7 @@ position = Vector2(118, 239)
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_vrexp")

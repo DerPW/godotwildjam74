@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dco800ys3l5wy"]
+[gd_scene load_steps=5 format=3 uid="uid://dco800ys3l5wy"]
 
 [ext_resource type="Script" path="res://scripts/everything_platform_player.gd" id="1_o6mhb"]
 [ext_resource type="Texture2D" uid="uid://dlchk76xvdo2r" path="res://icon.svg" id="1_y7p5g"]
+[ext_resource type="Texture2D" uid="uid://xy57j8xpjbb6" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_f1jk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etgdx"]
 size = Vector2(128, 126)
@@ -26,3 +27,8 @@ position = Vector2(0, -17)
 
 [node name="Close To Edge Raycast2" type="RayCast2D" parent="."]
 position = Vector2(0, -25)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("3_f1jk7")
+texture_scale = 5.0
