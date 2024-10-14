@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=12 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
-[ext_resource type="PackedScene" path="res://scenes/candle.tscn" id="4_54mqe"]
+[ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="4_54mqe"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="6_jgib0"]
+[ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="7_hfkjt"]
+[ext_resource type="Script" path="res://scenes/transition_circle.gd" id="8_jc3wu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrexp"]
 shader = ExtResource("5_aa2x8")
@@ -29,6 +31,13 @@ shader_parameter/color = Color(0.0117647, 0.027451, 0.0392157, 1)
 shader_parameter/hdr = true
 shader_parameter/seed = 5.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54kvi"]
+shader = ExtResource("7_hfkjt")
+shader_parameter/circle_size = 0.19
+shader_parameter/screen_width = 576.0
+shader_parameter/screen_height = 324.0
+shader_parameter/circle_position = Vector2(0.28, 0.82)
+
 [node name="Main" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -42,7 +51,7 @@ tile_set = ExtResource("1_n3m2q")
 
 [node name="God" parent="." node_paths=PackedStringArray("follower") instance=ExtResource("2_cbnwu")]
 z_index = 1
-position = Vector2(162, 231)
+position = Vector2(162, 264)
 follower = NodePath("../Ghost")
 
 [node name="Ghost" parent="." instance=ExtResource("3_ssqcd")]
@@ -84,3 +93,13 @@ offset_left = 119.0
 offset_right = 193.0
 offset_bottom = 272.0
 color = Color(1, 1, 1, 0)
+
+[node name="TransitionCircle" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_54kvi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_jc3wu")
