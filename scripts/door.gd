@@ -2,6 +2,8 @@ class_name Door
 
 extends Node2D
 
+signal player_entered
+
 const OPEN_FRAME = 0
 const CLOSED_FRAME = 1
 
@@ -17,6 +19,8 @@ func _ready() -> void:
 
 
 func set_open(open: bool) -> void:
+	is_open = open
+	
 	var current_frame = CLOSED_FRAME
 	open_light.hide()
 	closed_light.show()
@@ -35,3 +39,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 	if Inventory.has_item(key):
 		set_open(true)
+
+
+func _on_enter_area_body_entered(body: Node2D) -> void:
+	if body is not God:
+		return
+		
+	if not is_open:
+		return
+		
+	player_entered.emit()

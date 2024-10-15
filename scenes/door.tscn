@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btrkguy8k3bw5"]
+[gd_scene load_steps=9 format=3 uid="uid://btrkguy8k3bw5"]
 
 [ext_resource type="Texture2D" uid="uid://dm4wnrieghc43" path="res://assets/tilesets/tileset_door.png" id="1_e8rys"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_o60eo"]
@@ -29,6 +29,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpkys"]
 size = Vector2(91.5, 84.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bou1"]
+size = Vector2(20, 24)
+
 [node name="Door" type="Node2D"]
 script = ExtResource("1_o60eo")
 
@@ -50,9 +53,16 @@ shadow_enabled = true
 texture = ExtResource("3_a5ppk")
 texture_scale = 0.47
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="OpenArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenArea"]
 shape = SubResource("RectangleShape2D_fpkys")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="EnterArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterArea"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_7bou1")
+
+[connection signal="body_entered" from="OpenArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="EnterArea" to="." method="_on_enter_area_body_entered"]
