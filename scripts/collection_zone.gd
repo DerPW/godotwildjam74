@@ -2,7 +2,7 @@ class_name CollectionZone
 
 extends Area2D
 
-signal collected(pickup: Pickup.PICKUP_TYPE)
+signal collected(item: InventoryItem)
 
 func _ready() -> void:
 	area_entered.connect(_on_area_enter)
@@ -13,4 +13,4 @@ func _on_area_enter(area: Pickup) -> void:
 		return
 		
 	area.collect()
-	collected.emit(area.type)
+	collected.emit(area.item)

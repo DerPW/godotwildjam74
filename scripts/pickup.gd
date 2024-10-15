@@ -4,11 +4,7 @@ extends Area2D
 
 signal collected()
 
-enum PICKUP_TYPE {
-	KEY_IRON
-}
-
-@export var type: PICKUP_TYPE
+@export var item: InventoryItem
 
 func collect() -> void:
 	collected.emit()

@@ -2,7 +2,7 @@ extends RigidBody2D
 
 const SHINE_TIME = 10
 
-@export var pickup_type: Pickup.PICKUP_TYPE 
+@export var item: InventoryItem
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var tween: Tween = get_tree().create_tween().set_loops()
@@ -12,7 +12,7 @@ const SHINE_TIME = 10
 func _ready() -> void:
 	tween.tween_property(sprite.material, "shader_parameter/shine_progress", 1.0, .5).from_current()
 	tween.tween_interval(2.0)
-	pickup.type = pickup_type
+	pickup.item = item
 	
 
 
