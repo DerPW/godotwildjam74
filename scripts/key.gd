@@ -1,3 +1,5 @@
+class_name Key
+
 extends RigidBody2D
 
 const SHINE_TIME = 10

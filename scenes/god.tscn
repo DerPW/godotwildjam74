@@ -12,6 +12,7 @@ size = Vector2(128, 126)
 radius = 128.0
 
 [node name="God" type="CharacterBody2D"]
+z_index = 5
 scale = Vector2(0.125, 0.125)
 script = ExtResource("1_o6mhb")
 dash_has_ability = false
