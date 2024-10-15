@@ -1,3 +1,5 @@
+class_name God
+
 extends CharacterBody2D
 
 @onready var main := get_tree().get_current_scene()

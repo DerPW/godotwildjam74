@@ -22,7 +22,7 @@ InventoryNode="*res://scripts/inventory.gd"
 [display]
 
 window/size/viewport_width=576
-window/size/viewport_height=324
+window/size/viewport_height=320
 window/size/mode=2
 window/stretch/mode="viewport"
 
