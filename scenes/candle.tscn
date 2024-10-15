@@ -1,49 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://crokx0nfwsok0"]
+[gd_scene load_steps=3 format=3 uid="uid://crokx0nfwsok0"]
 
 [ext_resource type="Texture2D" uid="uid://xy57j8xpjbb6" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="1_p1ttr"]
-[ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="2_s1kjp"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="2_shifu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6oir"]
-atlas = ExtResource("2_s1kjp")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="Animation" id="Animation_typyr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_00he3"]
-resource_name = "flicker"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.766667, 0.866667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [1.0, 0.7, 0.86, 0.6, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fk7u"]
-_data = {
-"RESET": SubResource("Animation_typyr"),
-"flicker": SubResource("Animation_00he3")
-}
 
 [node name="Candle" type="PointLight2D"]
 position = Vector2(72, 152)
@@ -52,11 +10,3 @@ shadow_enabled = true
 texture = ExtResource("1_p1ttr")
 texture_scale = 0.4
 script = ExtResource("2_shifu")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_c6oir")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_0fk7u")
-}
