@@ -91,6 +91,7 @@ var start_position := Vector2.ZERO
 var positions := []
 var delay_time := 3.0
 var step_time := 0.05
+@export var enable_wall_latching := false
 # eigener code 😊
 
 func _ready():
@@ -391,6 +392,7 @@ func update_velocity(delta):
 	velocity.y = clamp(velocity.y, -current_max_vspeed(), current_max_vspeed())
 	
 func wall_latching():
+	if not enable_wall_latching: return
 	if has_wall_latch and can_move():
 		# If not on floor, against a wall, "walking toward" the wall I'm against
 		if not on_floor() and (against_wall() != 0) and (against_wall() == sign(velocity.x)):
