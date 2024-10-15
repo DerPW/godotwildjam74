@@ -13,4 +13,5 @@ func _on_area_enter(area: Pickup) -> void:
 		return
 		
 	area.collect()
+	Inventory.add_item(area.item)
 	collected.emit(area.item)
