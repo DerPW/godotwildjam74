@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dco800ys3l5wy"]
+[gd_scene load_steps=7 format=3 uid="uid://dco800ys3l5wy"]
 
 [ext_resource type="Script" path="res://scripts/everything_platform_player.gd" id="1_o6mhb"]
 [ext_resource type="Texture2D" uid="uid://dlchk76xvdo2r" path="res://icon.svg" id="1_y7p5g"]
 [ext_resource type="Texture2D" uid="uid://xy57j8xpjbb6" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_f1jk7"]
+[ext_resource type="Script" path="res://scripts/collection_zone.gd" id="4_boigt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etgdx"]
 size = Vector2(128, 126)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11qju"]
+radius = 128.0
 
 [node name="God" type="CharacterBody2D"]
 scale = Vector2(0.125, 0.125)
@@ -32,3 +36,9 @@ position = Vector2(0, -25)
 shadow_enabled = true
 texture = ExtResource("3_f1jk7")
 texture_scale = 5.0
+
+[node name="CollectionZone" type="Area2D" parent="."]
+script = ExtResource("4_boigt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionZone"]
+shape = SubResource("CircleShape2D_11qju")

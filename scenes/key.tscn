@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlu8bglbmfh5w"]
+[gd_scene load_steps=8 format=3 uid="uid://dlu8bglbmfh5w"]
 
 [ext_resource type="Texture2D" uid="uid://dgbcw1jpsnwa" path="res://assets/item_key.png" id="1_8bcq2"]
 [ext_resource type="Script" path="res://scripts/key.gd" id="1_cw5kr"]
 [ext_resource type="Shader" path="res://scenes/highlight.gdshader" id="2_kib0u"]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="4_j17ol"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_64flb"]
 shader = ExtResource("2_kib0u")
@@ -13,6 +14,9 @@ shader_parameter/shine_angle = 45.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t5gaa"]
 polygon = PackedVector2Array(-14, -1, -14, 1, 4, 1, 7, 5, 11, 5, 14, 3, 14, -3, 11, -6, 7, -6, 4, -1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6jhv"]
+size = Vector2(32, 16)
 
 [node name="Key" type="RigidBody2D"]
 script = ExtResource("1_cw5kr")
@@ -27,3 +31,11 @@ polygon = PackedVector2Array(-10, 2, -8.66667, 2, -8.66667, 5, -5.33333, 5, -5.3
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_t5gaa")
+
+[node name="Pickup" type="Area2D" parent="."]
+script = ExtResource("4_j17ol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+shape = SubResource("RectangleShape2D_j6jhv")
+
+[connection signal="collected" from="Pickup" to="." method="_on_pickup_collected"]

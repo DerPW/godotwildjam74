@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=14 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="4_54mqe"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
+[ext_resource type="PackedScene" uid="uid://dd40ksagcfovn" path="res://scenes/camera.tscn" id="6_be08c"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="6_jgib0"]
 [ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="7_hfkjt"]
 [ext_resource type="Script" path="res://scenes/transition_circle.gd" id="8_jc3wu"]
@@ -67,17 +68,21 @@ position = Vector2(455, 138)
 [node name="Key" parent="World" instance=ExtResource("3_ndx00")]
 position = Vector2(360, 204)
 
-[node name="God" parent="." node_paths=PackedStringArray("follower") instance=ExtResource("2_cbnwu")]
+[node name="God" parent="World" node_paths=PackedStringArray("follower") instance=ExtResource("2_cbnwu")]
 z_index = 1
 position = Vector2(162, 264)
-air_jump_has_ability = true
 follower = NodePath("../Ghost")
 
-[node name="Ghost" parent="." instance=ExtResource("3_ssqcd")]
+[node name="Ghost" parent="World" instance=ExtResource("3_ssqcd")]
 position = Vector2(118, 239)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="World"]
+visible = false
 color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[node name="Camera2D" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("6_be08c")]
+follow_speed = 2.0
+player = NodePath("../God")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
