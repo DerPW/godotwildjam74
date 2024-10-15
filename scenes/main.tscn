@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlu8bglbmfh5w" path="res://scenes/key.tscn" id="3_ndx00"]
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
-[ext_resource type="Resource" uid="uid://bedmc31ak1i17" path="res://data/inv_item_key_iron.tres" id="6_1qanj"]
+[ext_resource type="Resource" path="res://data/inv_item_key_iron.tres" id="6_1qanj"]
 [ext_resource type="PackedScene" uid="uid://dd40ksagcfovn" path="res://scenes/camera.tscn" id="6_be08c"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="6_jgib0"]
 [ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="7_hfkjt"]
