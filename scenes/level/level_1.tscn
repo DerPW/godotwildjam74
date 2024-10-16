@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_b0jex"]
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_ooydw"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="2_o3plo"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="2_w4yui"]
-[ext_resource type="Resource" path="res://data/inv_item_key_iron.tres" id="3_07r3u"]
+[ext_resource type="PackedScene" uid="uid://btrkguy8k3bw5" path="res://scenes/door.tscn" id="2_w4yui"]
+[ext_resource type="Resource" uid="uid://bedmc31ak1i17" path="res://data/inv_item_key_iron.tres" id="3_07r3u"]
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="4_ljmdi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ncw"]

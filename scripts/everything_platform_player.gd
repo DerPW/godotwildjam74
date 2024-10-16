@@ -92,6 +92,8 @@ var positions := []
 var delay_time := 3.0
 var step_time := 0.05
 @export var enable_wall_latching := false
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 # eigener code 😊
 
 func _ready():
@@ -108,12 +110,21 @@ func _process(_delta):
 	
 	if positions.size() > int(delay_time / step_time):
 		follower.global_position = positions.pop_front()
-	# eigener code 😊
+	
+	
+	if velocity.x < 0:
+		animated_sprite_2d.flip_h = true
+	if velocity.x > 0:
+		animated_sprite_2d.flip_h = false
+	
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_down"):
-		position.y += 1
-		pass
+	if not on_floor():
+		animated_sprite_2d.play(&"jump")
+	elif abs(velocity.x) > 0:
+		animated_sprite_2d.play(&"run")
+	else: 
+		animated_sprite_2d.play(&"idle")
+	# eigener code 😊
 
 func _physics_process(delta):
 	if process_self:
