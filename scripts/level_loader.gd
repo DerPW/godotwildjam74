@@ -59,6 +59,15 @@ func _restart_level() -> void:
 	# wait for circle to close
 	await get_tree().create_timer(1).timeout
 	_unload_level(current_level)
+	
+	# add 🗝️ back if player collected
+	if not get_parent().has_node("Key"): 
+		var key: Key = (load("res://scenes/key.tscn") as PackedScene).instantiate()
+		var key_item = load("res://data/inv_item_key_iron.tres") as InventoryItem
+		Inventory.remove_item(key_item)
+		key.item = key_item
+		get_parent().add_child(key)
+	
 	_load_level(current_level)
 	# circle open
 	level_started.emit()

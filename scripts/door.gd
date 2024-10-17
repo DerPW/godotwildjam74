@@ -39,6 +39,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 	if Inventory.has_item(key):
 		set_open(true)
+		Inventory.remove_item(key)
 
 
 func _on_enter_area_body_entered(body: Node2D) -> void:
