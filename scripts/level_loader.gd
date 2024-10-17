@@ -36,6 +36,10 @@ func _load_level_scenes(folder_path: String) -> Array:
 	return packed_scenes
 
 func _load_level(level: int) -> void:
+	# add 🗝️ back if player collected
+	if not get_parent().has_node("Key"): 
+		_reset_key()
+	
 	var packed_scene = level_scenes[level]
 	var level_instance = packed_scene.instantiate()
 	add_child(level_instance)
@@ -60,21 +64,30 @@ func _restart_level() -> void:
 	await get_tree().create_timer(1).timeout
 	_unload_level(current_level)
 	
-	# add 🗝️ back if player collected
-	if not get_parent().has_node("Key"): 
-		var key: Key = (load("res://scenes/key.tscn") as PackedScene).instantiate()
-		var key_item = load("res://data/inv_item_key_iron.tres") as InventoryItem
-		Inventory.remove_item(key_item)
-		key.item = key_item
-		get_parent().add_child(key)
-	
 	_load_level(current_level)
 	# circle open
 	level_started.emit()
 
+func _reset_key() -> void:
+	var key: Key = (load("res://scenes/key.tscn") as PackedScene).instantiate()
+	var key_item = load("res://data/inv_item_key_iron.tres") as InventoryItem
+	Inventory.remove_item(key_item)
+	key.item = key_item
+	get_parent().add_child(key)
+
 func _on_level_completed() -> void:
 	level_ended.emit()
-	print("LEVEL COMPLETED")
+	# wait for circle to close
+	await get_tree().create_timer(1).timeout
+	_unload_level(current_level)
+	current_level += 1
+	
+	# check if it was the last level
+	if current_level > level_scenes.size():
+		print("This was the last level")
+		return
+	
+	_load_level(current_level)
 
 
 func _on_ghost_catched_player() -> void:
