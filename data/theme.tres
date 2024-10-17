@@ -1,0 +1,115 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b65a6ydhitlq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irii0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xg4s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.07)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cow0n"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v4oi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[resource]
+Button/colors/font_color = Color(0.764706, 0.639216, 0.541176, 1)
+Button/colors/font_disabled_color = Color(0.6, 0.458824, 0.466667, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.964706, 0.839216, 0.741176, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+ItemList/colors/font_color = Color(0.454902, 0.247059, 0.223529, 1)
+ItemList/colors/font_hovered_color = Color(0.247059, 0.156863, 0.196078, 1)
+ItemList/colors/font_outline_color = Color(0, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(1, 1, 1, 1)
+ItemList/colors/guide_color = Color(0.7, 0.7, 0.7, 0.25)
+ItemList/constants/h_separation = 24
+ItemList/constants/icon_margin = 4
+ItemList/constants/line_separation = 4
+ItemList/constants/outline_size = 0
+ItemList/constants/v_separation = 14
+ItemList/font_sizes/font_size = 16
+ItemList/fonts/font = null
+ItemList/styles/cursor = SubResource("StyleBoxFlat_irii0")
+ItemList/styles/cursor_unfocused = SubResource("StyleBoxFlat_irii0")
+ItemList/styles/focus = SubResource("StyleBoxFlat_irii0")
+ItemList/styles/hovered = SubResource("StyleBoxFlat_8xg4s")
+ItemList/styles/panel = null
+ItemList/styles/selected = SubResource("StyleBoxFlat_cow0n")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_0v4oi")
+Label/colors/font_color = Color(0.764706, 0.639216, 0.541176, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = null
+Label/styles/normal = null
+Panel/styles/panel = null

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://du0su787317ah"]
+[gd_scene load_steps=12 format=4 uid="uid://du0su787317ah"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_b0jex"]
-[ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_ooydw"]
+[ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://data/walls_tileset.tres" id="1_ooydw"]
+[ext_resource type="PackedScene" uid="uid://dlu8bglbmfh5w" path="res://scenes/key.tscn" id="2_nikvu"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="2_o3plo"]
 [ext_resource type="PackedScene" uid="uid://dhiqybqm31mnk" path="res://scenes/door.tscn" id="2_w4yui"]
-[ext_resource type="Resource" path="res://data/inv_item_key_iron.tres" id="3_07r3u"]
+[ext_resource type="Resource" uid="uid://bedmc31ak1i17" path="res://data/inv_item_key_iron.tres" id="3_07r3u"]
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="4_ljmdi"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="7_fxja2"]
 
@@ -46,11 +47,12 @@ shader_parameter/seed = 5.0
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_b0jex")
 
+[node name="Key" parent="." instance=ExtResource("2_nikvu")]
+position = Vector2(528, 40)
+item = ExtResource("3_07r3u")
+
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(56, 280)
-
-[node name="KeySpawnPoint" type="Node2D" parent="."]
-position = Vector2(528, 40)
 
 [node name="Door" parent="." instance=ExtResource("2_w4yui")]
 position = Vector2(562, 216)

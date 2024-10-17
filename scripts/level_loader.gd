@@ -37,8 +37,7 @@ func _load_level_scenes(folder_path: String) -> Array:
 
 func _load_level(level: int) -> void:
 	# add 🗝️ back if player collected
-	if not get_parent().has_node("Key"): 
-		_reset_key()
+	_reset_key()
 	
 	var packed_scene = level_scenes[level]
 	var level_instance = packed_scene.instantiate()
@@ -69,11 +68,7 @@ func _restart_level() -> void:
 	level_started.emit()
 
 func _reset_key() -> void:
-	var key: Key = (load("res://scenes/key.tscn") as PackedScene).instantiate()
-	var key_item = load("res://data/inv_item_key_iron.tres") as InventoryItem
-	Inventory.remove_item(key_item)
-	key.item = key_item
-	get_parent().add_child(key)
+	Inventory.clear_items()
 
 func _on_level_completed() -> void:
 	level_ended.emit()
@@ -83,7 +78,7 @@ func _on_level_completed() -> void:
 	current_level += 1
 	
 	# check if it was the last level
-	if current_level > level_scenes.size():
+	if current_level >= level_scenes.size():
 		print("This was the last level")
 		return
 	
