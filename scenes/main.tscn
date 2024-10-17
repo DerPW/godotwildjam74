@@ -69,7 +69,6 @@ position = Vector2(-96, 160)
 item = ExtResource("6_1qanj")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
-visible = false
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="Camera2D" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("6_be08c")]
