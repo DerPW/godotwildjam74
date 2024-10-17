@@ -4,12 +4,12 @@ signal level_started
 signal level_ended
 
 @export var level_folder_path : String
-var level_scenes : Array
+@export var level_scenes : Array[PackedScene]
 var current_level := 0
 
 func _ready() -> void:
 	# load levels as packed scene from level folder
-	level_scenes = _load_level_scenes(level_folder_path)
+	#level_scenes = _load_level_scenes(level_folder_path)
 	
 	# load first level
 	_load_level(current_level)
