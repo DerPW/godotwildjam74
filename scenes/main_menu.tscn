@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://lbxrsfjl1vw"]
+[gd_scene load_steps=10 format=4 uid="uid://lbxrsfjl1vw"]
 
 [ext_resource type="Theme" uid="uid://b65a6ydhitlq3" path="res://data/theme.tres" id="1_i6v7o"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_bj35f"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="4_aabei"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="4_q6t3t"]
 [ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="5_b8ax0"]
-[ext_resource type="Script" path="res://scenes/transition_circle.gd" id="6_cwyp6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rflxn"]
 font_size = 24
@@ -133,7 +132,6 @@ grow_vertical = 0
 text = "Made for Godot Wild Jam 74"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_y6kv6")
@@ -142,16 +140,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TransitionCircle" type="ColorRect" parent="CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_1x4kw")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("6_cwyp6")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
