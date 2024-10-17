@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btrkguy8k3bw5"]
+[gd_scene load_steps=9 format=3 uid="uid://dhiqybqm31mnk"]
 
 [ext_resource type="Texture2D" uid="uid://dm4wnrieghc43" path="res://assets/tilesets/tileset_door.png" id="1_e8rys"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_o60eo"]
