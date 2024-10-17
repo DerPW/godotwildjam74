@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://du0su787317ah"]
+[gd_scene load_steps=11 format=4 uid="uid://du0su787317ah"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_b0jex"]
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_ooydw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhiqybqm31mnk" path="res://scenes/door.tscn" id="2_w4yui"]
 [ext_resource type="Resource" path="res://data/inv_item_key_iron.tres" id="3_07r3u"]
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="4_ljmdi"]
+[ext_resource type="Shader" path="res://shader/godrays.gdshader" id="7_fxja2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ncw"]
 texture = ExtResource("4_ljmdi")
@@ -25,6 +26,22 @@ texture = ExtResource("4_ljmdi")
 
 [sub_resource type="TileSet" id="TileSet_ablov"]
 sources/0 = SubResource("TileSetAtlasSource_g5ncw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_is3hr"]
+shader = ExtResource("7_fxja2")
+shader_parameter/angle = 0.245
+shader_parameter/position = 0.2
+shader_parameter/spread = 0.443
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 5.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(0.0117647, 0.027451, 0.0392157, 1)
+shader_parameter/hdr = true
+shader_parameter/seed = 5.0
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_b0jex")
@@ -72,5 +89,15 @@ position = Vector2(40, 56)
 
 [node name="Candle9" parent="Candles" instance=ExtResource("2_o3plo")]
 position = Vector2(40, 280)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Godrays" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_is3hr")
+offset_left = 496.0
+offset_right = 560.0
+offset_bottom = 72.0
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
