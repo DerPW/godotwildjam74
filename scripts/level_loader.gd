@@ -38,7 +38,6 @@ func _load_level_scenes(folder_path: String) -> Array:
 func _load_level(level: int) -> void:
 	var packed_scene = level_scenes[level]
 	var level_instance = packed_scene.instantiate()
-	level_instance.name = "Level_" + str(current_level + 1)
 	add_child(level_instance)
 	
 	# connect to completed signal
@@ -47,6 +46,27 @@ func _load_level(level: int) -> void:
 	
 	level_started.emit()
 
-func _on_level_completed():
+func _unload_level(level: int) -> void:
+	if get_child_count() <= 0: 
+		print("unable to unload level " + str(level + 1) + ", could not find node") 
+		return
+	# get rid of that 💩
+	get_child(0).queue_free()
+
+func _restart_level() -> void:
+	# circle closes
+	level_ended.emit()
+	# wait for circle to close
+	await get_tree().create_timer(1).timeout
+	_unload_level(current_level)
+	_load_level(current_level)
+	# circle open
+	level_started.emit()
+
+func _on_level_completed() -> void:
 	level_ended.emit()
 	print("LEVEL COMPLETED")
+
+
+func _on_ghost_catched_player() -> void:
+	_restart_level()

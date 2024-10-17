@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=16 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://assets/tilesets/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
-[ext_resource type="PackedScene" uid="uid://du0su787317ah" path="res://scenes/level/level_1.tscn" id="2_rfnfc"]
 [ext_resource type="PackedScene" uid="uid://dlu8bglbmfh5w" path="res://scenes/key.tscn" id="3_ndx00"]
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
@@ -109,11 +108,12 @@ player = NodePath("../God")
 script = ExtResource("7_tbtly")
 level_folder_path = "res://scenes/level/"
 
-[node name="Level1" parent="World/LevelLoader" instance=ExtResource("2_rfnfc")]
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer2" instance=ExtResource("8_hl8fl")]
 
+[connection signal="catched_player" from="World/Ghost" to="World/God" method="_on_ghost_catched_player"]
+[connection signal="catched_player" from="World/Ghost" to="World/LevelLoader" method="_on_ghost_catched_player"]
 [connection signal="level_ended" from="World/LevelLoader" to="CanvasLayer/TransitionCircle" method="_on_level_loader_level_ended"]
 [connection signal="level_started" from="World/LevelLoader" to="CanvasLayer/TransitionCircle" method="_on_level_loader_level_started"]
+[connection signal="level_started" from="World/LevelLoader" to="World/God" method="_on_level_loader_level_started"]

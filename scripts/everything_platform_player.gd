@@ -417,3 +417,13 @@ func wall_latching():
 			wall_slide_latched = 0
 			wall_slide_latch_on_timer = 0
 			
+
+
+func _on_ghost_catched_player() -> void:
+	process_self = false
+
+
+func _on_level_loader_level_started() -> void:
+	positions = []
+	follower.position = Vector2(-100, 100)
+	process_self = true

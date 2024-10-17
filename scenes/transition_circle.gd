@@ -30,7 +30,7 @@ func _on_level_loader_level_started() -> void:
 
 func _on_level_loader_level_ended() -> void:
 	var player_pos = _get_player_mapped_position()
-	player_pos.x += 0.02
+	#player_pos.x += 0.02
 	shader.set_shader_parameter("circle_position", player_pos)
 	var tween := get_tree().create_tween()
 	tween.tween_property(shader, "shader_parameter/circle_size", circle_closed, anim_duration)
