@@ -119,8 +119,10 @@ target_position = Vector2(0, 16)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(0.359375, 0.375)
+energy = 1.5
 shadow_enabled = true
 texture = ExtResource("3_f1jk7")
+texture_scale = 2.0
 
 [node name="CollectionZone" type="Area2D" parent="."]
 script = ExtResource("4_boigt")

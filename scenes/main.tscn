@@ -62,7 +62,7 @@ follower = NodePath("../Ghost")
 position = Vector2(-96, 107)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
-color = Color(0.306923, 0.306923, 0.306923, 1)
+color = Color(0.099986, 0.099986, 0.099986, 1)
 
 [node name="Camera2D" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("6_be08c")]
 limit_left = 0
