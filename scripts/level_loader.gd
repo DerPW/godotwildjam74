@@ -5,7 +5,7 @@ signal level_ended
 
 @export var level_folder_path : String
 @export var level_scenes : Array[PackedScene]
-var current_level := 0
+@export var current_level := 0
 
 func _ready() -> void:
 	# load levels as packed scene from level folder

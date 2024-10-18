@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=16 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://data/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" path="res://scripts/level_loader.gd" id="7_tbtly"]
 [ext_resource type="PackedScene" uid="uid://dsaqum4av307f" path="res://scenes/hud.tscn" id="8_hl8fl"]
 [ext_resource type="Script" path="res://scenes/transition_circle.gd" id="8_jc3wu"]
-[ext_resource type="PackedScene" uid="uid://c3n51id4qmc6g" path="res://scenes/level/level_2.tscn" id="12_5pvay"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="11_g4yvf"]
+[ext_resource type="PackedScene" uid="uid://c3n51id4qmc6g" path="res://scenes/level/level_3.tscn" id="12_5pvay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrexp"]
 shader = ExtResource("5_aa2x8")
@@ -24,6 +25,9 @@ shader_parameter/circle_size = 2.0
 shader_parameter/screen_width = 576.0
 shader_parameter/screen_height = 324.0
 shader_parameter/circle_position = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf5jm"]
+size = Vector2(785, 98)
 
 [node name="Main" type="Node2D"]
 
@@ -77,7 +81,15 @@ player = NodePath("../God")
 [node name="LevelLoader" type="Node" parent="World"]
 script = ExtResource("7_tbtly")
 level_folder_path = "res://scenes/level/"
-level_scenes = Array[PackedScene]([ExtResource("2_rfnfc"), ExtResource("12_5pvay")])
+level_scenes = Array[PackedScene]([ExtResource("2_rfnfc"), ExtResource("12_5pvay"), ExtResource("12_5pvay")])
+current_level = 2
+
+[node name="Killzone" type="Area2D" parent="World"]
+script = ExtResource("11_g4yvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Killzone"]
+position = Vector2(295.5, 388)
+shape = SubResource("RectangleShape2D_nf5jm")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -88,3 +100,5 @@ level_scenes = Array[PackedScene]([ExtResource("2_rfnfc"), ExtResource("12_5pvay
 [connection signal="level_ended" from="World/LevelLoader" to="CanvasLayer/TransitionCircle" method="_on_level_loader_level_ended"]
 [connection signal="level_started" from="World/LevelLoader" to="CanvasLayer/TransitionCircle" method="_on_level_loader_level_started"]
 [connection signal="level_started" from="World/LevelLoader" to="World/God" method="_on_level_loader_level_started"]
+[connection signal="body_entered" from="World/Killzone" to="World/Killzone" method="_on_body_entered"]
+[connection signal="player_fell_to_their_death" from="World/Killzone" to="World/LevelLoader" method="_on_ghost_catched_player"]
