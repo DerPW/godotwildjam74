@@ -1,9 +1,11 @@
-[gd_resource type="TileSet" load_steps=56 format=3 uid="uid://eid1v56ko2s7"]
+[gd_resource type="TileSet" load_steps=68 format=3 uid="uid://eid1v56ko2s7"]
 
 [ext_resource type="Texture2D" uid="uid://dlchk76xvdo2r" path="res://icon.svg" id="1_ge54t"]
 [ext_resource type="Texture2D" uid="uid://bsy5ffw2hvfmw" path="res://assets/tilesets/tileset_dungeon.png" id="2_maneu"]
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="3_30j45"]
 [ext_resource type="Texture2D" uid="uid://p5nlotcn8rs1" path="res://assets/tilesets/tileset_background.png" id="4_7jf4u"]
+[ext_resource type="Texture2D" uid="uid://chek7pxgtottc" path="res://assets/tilesets/tileset_house.png" id="5_ly7qy"]
+[ext_resource type="Texture2D" uid="uid://dmiwhwqm3yjqq" path="res://assets/tilesets/entities_house.png" id="6_d62ui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ojfup"]
 texture = ExtResource("1_ge54t")
@@ -677,13 +679,171 @@ texture = ExtResource("3_30j45")
 texture = ExtResource("4_7jf4u")
 0:0/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vxsle"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 2, 4, 2, 4, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n0nok"]
+polygon = PackedVector2Array(4, 8, -8, 8, -8, -8, 4, -8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g8tbt"]
+polygon = PackedVector2Array(8, -6.5, 8, 8, -8, 8, -8, -8, 4, -8, 4, -6.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0u15i"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dc8nc"]
+polygon = PackedVector2Array(8, -6.5, 8, 8, -8, 8, -8, -6.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3ah2y"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -4, 8, -4, 2, -8, 2)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_51mma"]
+polygon = PackedVector2Array(-4, -8, 8, -8, 8, 8, -4, 8, -4, 2)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vdnrd"]
+polygon = PackedVector2Array(-4, -8, 8, -8, 8, 8, -8, 8, -8, -6.5, -4, -6.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01ugp"]
+texture = ExtResource("5_ly7qy")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_vxsle")
+0:0/0/terrains_peering_bit/right_side = 1
+0:0/0/terrains_peering_bit/bottom_side = 1
+0:0/0/terrains_peering_bit/bottom_left_corner = 1
+0:0/0/terrains_peering_bit/left_side = 1
+0:0/0/terrains_peering_bit/top_left_corner = 1
+0:0/0/terrains_peering_bit/top_side = 1
+0:0/0/terrains_peering_bit/top_right_corner = 1
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_0u15i")
+1:0/0/terrains_peering_bit/right_side = 1
+1:0/0/terrains_peering_bit/left_side = 1
+1:0/0/terrains_peering_bit/top_left_corner = 1
+1:0/0/terrains_peering_bit/top_side = 1
+1:0/0/terrains_peering_bit/top_right_corner = 1
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 1
+2:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_3ah2y")
+2:0/0/terrains_peering_bit/right_side = 1
+2:0/0/terrains_peering_bit/bottom_right_corner = 1
+2:0/0/terrains_peering_bit/bottom_side = 1
+2:0/0/terrains_peering_bit/left_side = 1
+2:0/0/terrains_peering_bit/top_left_corner = 1
+2:0/0/terrains_peering_bit/top_side = 1
+2:0/0/terrains_peering_bit/top_right_corner = 1
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 1
+3:0/0/terrains_peering_bit/right_side = 1
+3:0/0/terrains_peering_bit/bottom_right_corner = 1
+3:0/0/terrains_peering_bit/bottom_side = 1
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 1
+0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_n0nok")
+0:1/0/terrains_peering_bit/bottom_side = 1
+0:1/0/terrains_peering_bit/bottom_left_corner = 1
+0:1/0/terrains_peering_bit/left_side = 1
+0:1/0/terrains_peering_bit/top_left_corner = 1
+0:1/0/terrains_peering_bit/top_side = 1
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 1
+2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_51mma")
+2:1/0/terrains_peering_bit/right_side = 1
+2:1/0/terrains_peering_bit/bottom_right_corner = 1
+2:1/0/terrains_peering_bit/bottom_side = 1
+2:1/0/terrains_peering_bit/top_side = 1
+2:1/0/terrains_peering_bit/top_right_corner = 1
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 1
+3:1/0/terrains_peering_bit/right_side = 1
+3:1/0/terrains_peering_bit/top_side = 1
+3:1/0/terrains_peering_bit/top_right_corner = 1
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 1
+0:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_g8tbt")
+0:2/0/terrains_peering_bit/right_side = 1
+0:2/0/terrains_peering_bit/bottom_right_corner = 1
+0:2/0/terrains_peering_bit/bottom_side = 1
+0:2/0/terrains_peering_bit/bottom_left_corner = 1
+0:2/0/terrains_peering_bit/left_side = 1
+0:2/0/terrains_peering_bit/top_left_corner = 1
+0:2/0/terrains_peering_bit/top_side = 1
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 1
+1:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_dc8nc")
+1:2/0/terrains_peering_bit/right_side = 1
+1:2/0/terrains_peering_bit/bottom_right_corner = 1
+1:2/0/terrains_peering_bit/bottom_side = 1
+1:2/0/terrains_peering_bit/bottom_left_corner = 1
+1:2/0/terrains_peering_bit/left_side = 1
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 1
+2:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_vdnrd")
+2:2/0/terrains_peering_bit/right_side = 1
+2:2/0/terrains_peering_bit/bottom_right_corner = 1
+2:2/0/terrains_peering_bit/bottom_side = 1
+2:2/0/terrains_peering_bit/bottom_left_corner = 1
+2:2/0/terrains_peering_bit/left_side = 1
+2:2/0/terrains_peering_bit/top_side = 1
+2:2/0/terrains_peering_bit/top_right_corner = 1
+3:2/0 = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 1
+0:3/0/terrains_peering_bit/right_side = 1
+0:3/0/terrains_peering_bit/bottom_right_corner = 1
+0:3/0/terrains_peering_bit/bottom_side = 1
+0:3/0/terrains_peering_bit/bottom_left_corner = 1
+0:3/0/terrains_peering_bit/left_side = 1
+0:3/0/terrains_peering_bit/top_left_corner = 1
+0:3/0/terrains_peering_bit/top_side = 1
+0:3/0/terrains_peering_bit/top_right_corner = 1
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrain = 1
+4:0/0/terrains_peering_bit/bottom_side = 1
+4:0/0/terrains_peering_bit/bottom_left_corner = 1
+4:0/0/terrains_peering_bit/left_side = 1
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrain = 1
+4:1/0/terrains_peering_bit/left_side = 1
+4:1/0/terrains_peering_bit/top_left_corner = 1
+4:1/0/terrains_peering_bit/top_side = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8qrg"]
+texture = ExtResource("6_d62ui")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Dungeon"
 terrain_set_0/terrain_0/color = Color(0.721561, 0.136124, 0.608438, 1)
+terrain_set_0/terrain_1/name = "House"
+terrain_set_0/terrain_1/color = Color(0.0952016, 0.509249, 0.463569, 1)
 sources/0 = SubResource("TileSetAtlasSource_ojfup")
 sources/1 = SubResource("TileSetAtlasSource_kok3e")
 sources/2 = SubResource("TileSetAtlasSource_xhxap")
 sources/3 = SubResource("TileSetAtlasSource_t72c3")
+sources/4 = SubResource("TileSetAtlasSource_01ugp")
+sources/5 = SubResource("TileSetAtlasSource_m8qrg")
