@@ -89,7 +89,6 @@ player = NodePath("../God")
 script = ExtResource("7_tbtly")
 level_folder_path = "res://scenes/level/"
 level_scenes = Array[PackedScene]([ExtResource("10_8t0sh"), ExtResource("2_rfnfc"), ExtResource("11_npv50"), ExtResource("12_5pvay"), ExtResource("14_uw3b1"), ExtResource("15_mjpv3")])
-current_level = 5
 
 [node name="Killzone" type="Area2D" parent="World"]
 script = ExtResource("11_g4yvf")
