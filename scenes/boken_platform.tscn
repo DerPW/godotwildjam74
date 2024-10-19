@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://drqq7qe6mnqx0"]
+
+[ext_resource type="Script" path="res://scripts/boken_platform.gd" id="1_a2jeg"]
+[ext_resource type="Texture2D" uid="uid://c0lnlfk6yxefl" path="res://assets/tilesets/tileset_dungeon_boken_platforms.png" id="2_anv81"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i1uk"]
+atlas = ExtResource("2_anv81")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlx1g"]
+size = Vector2(16, 1)
+
+[node name="BokenPlatform" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_a2jeg")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -2.5)
+polygon = PackedVector2Array(-8, -5.5, 8, -5.5, 8, -1.5, 6, -1.5, 6, 5.5, -6, 5.5, -6, -1.5, -8, -1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_1i1uk")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_dlx1g")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

@@ -55,11 +55,13 @@ texture = ExtResource("3_a5ppk")
 texture_scale = 0.47
 
 [node name="OpenArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenArea"]
 shape = SubResource("RectangleShape2D_fpkys")
 
 [node name="EnterArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterArea"]
 position = Vector2(0, 12)

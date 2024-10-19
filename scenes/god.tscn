@@ -94,6 +94,8 @@ size = Vector2(12, 16)
 
 [node name="God" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_o6mhb")
 dash_has_ability = false
 max_vspeed = 500
