@@ -3,9 +3,12 @@ extends Node
 signal level_started
 signal level_ended
 
+const END_SCENE = preload("res://scenes/the_end.tscn")
+
 @export var level_folder_path : String
 @export var level_scenes : Array[PackedScene]
 @export var current_level := 0
+
 
 func _ready() -> void:
 	# load levels as packed scene from level folder
@@ -79,11 +82,17 @@ func _on_level_completed() -> void:
 	
 	# check if it was the last level
 	if current_level >= level_scenes.size():
-		print("This was the last level")
-		return
-	
-	_load_level(current_level)
+		_load_end_scene()
+	else:
+		_load_level(current_level)
 
+func _load_end_scene() -> void:
+	var circle := get_parent().get_parent().get_node("CanvasLayer/TransitionCircle").material as ShaderMaterial
+	var tween := get_tree().create_tween()
+	tween.tween_property(circle, "shader_parameter/circle_size", 0, 1)
+	# wait for circle to close
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_packed(END_SCENE)
 
 func _on_ghost_catched_player() -> void:
 	_restart_level()
