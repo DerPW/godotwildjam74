@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=21 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://data/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://fv3eyg47wquk" path="res://scenes/music.tscn" id="1_ww0ri"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dovn0pai5qjxf" path="res://scenes/level/level_2.tscn" id="11_npv50"]
 [ext_resource type="PackedScene" uid="uid://c3n51id4qmc6g" path="res://scenes/level/level_3.tscn" id="12_5pvay"]
 [ext_resource type="PackedScene" uid="uid://d04avii7cqnck" path="res://scenes/level/level_4.tscn" id="14_uw3b1"]
+[ext_resource type="PackedScene" uid="uid://cs0kq3cv1m4n8" path="res://scenes/level/level_5.tscn" id="15_mjpv3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrexp"]
 shader = ExtResource("5_aa2x8")
@@ -87,8 +88,8 @@ player = NodePath("../God")
 [node name="LevelLoader" type="Node" parent="World"]
 script = ExtResource("7_tbtly")
 level_folder_path = "res://scenes/level/"
-level_scenes = Array[PackedScene]([ExtResource("10_8t0sh"), ExtResource("2_rfnfc"), ExtResource("11_npv50"), ExtResource("12_5pvay"), ExtResource("14_uw3b1")])
-current_level = 4
+level_scenes = Array[PackedScene]([ExtResource("10_8t0sh"), ExtResource("2_rfnfc"), ExtResource("11_npv50"), ExtResource("12_5pvay"), ExtResource("14_uw3b1"), ExtResource("15_mjpv3")])
+current_level = 5
 
 [node name="Killzone" type="Area2D" parent="World"]
 script = ExtResource("11_g4yvf")

@@ -125,6 +125,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Switch" parent="." node_paths=PackedStringArray("walls_tilemap_layer") instance=ExtResource("9_dxp0r")]
 position = Vector2(488, 152)
 walls_tilemap_layer = NodePath("../Walls")
-switchable_walls_coordinates = Array[Vector2i]([Vector2i(15, 6), Vector2i(17, 6)])
+wall_to_remove = Array[Vector2i]([Vector2i(15, 6), Vector2i(17, 6)])
 
 [connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
