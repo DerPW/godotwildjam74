@@ -89,8 +89,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etgdx"]
 size = Vector2(12, 15.875)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_11qju"]
-radius = 19.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1pcu"]
+size = Vector2(12, 16)
 
 [node name="God" type="CharacterBody2D"]
 z_index = 5
@@ -128,4 +128,4 @@ texture_scale = 2.0
 script = ExtResource("4_boigt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionZone"]
-shape = SubResource("CircleShape2D_11qju")
+shape = SubResource("RectangleShape2D_t1pcu")
