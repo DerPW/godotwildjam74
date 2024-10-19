@@ -13,6 +13,7 @@ const CLOSED_FRAME = 1
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var open_light: PointLight2D = $OpenLight
 @onready var closed_light: PointLight2D = $ClosedLight
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	set_open(is_open)
@@ -49,4 +50,5 @@ func _on_enter_area_body_entered(body: Node2D) -> void:
 	if not is_open:
 		return
 		
+	audio_stream_player_2d.play()
 	player_entered.emit()

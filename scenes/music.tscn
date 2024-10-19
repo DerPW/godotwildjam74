@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fv3eyg47wquk"]
+
+[ext_resource type="AudioStream" uid="uid://dofk6t5t7g0s3" path="res://assets/audio/WakeUp.mp3" id="1_pdg6i"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_pdg6i")
+autoplay = true
+bus = &"Music"

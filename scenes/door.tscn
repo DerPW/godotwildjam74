@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhiqybqm31mnk"]
+[gd_scene load_steps=10 format=3 uid="uid://dhiqybqm31mnk"]
 
 [ext_resource type="Texture2D" uid="uid://dm4wnrieghc43" path="res://assets/tilesets/tileset_door.png" id="1_e8rys"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_o60eo"]
 [ext_resource type="Texture2D" uid="uid://xy57j8xpjbb6" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_a5ppk"]
+[ext_resource type="AudioStream" uid="uid://n6dhatndcaii" path="res://assets/audio/BRS_Door_Wood_Cheap_Op_Creak.wav" id="4_35qtr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y823b"]
 atlas = ExtResource("1_e8rys")
@@ -63,6 +64,9 @@ shape = SubResource("RectangleShape2D_fpkys")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterArea"]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_7bou1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_35qtr")
 
 [connection signal="body_entered" from="OpenArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="EnterArea" to="." method="_on_enter_area_body_entered"]
