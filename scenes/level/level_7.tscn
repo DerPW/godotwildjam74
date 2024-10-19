@@ -103,7 +103,6 @@ wall_to_remove = Array[Vector2i]([Vector2i(9, 18), Vector2i(33, 18)])
 
 [node name="BokenPlatform" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(200, 200)
-time_until_fall = 0.5
 
 [node name="BokenPlatform2" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(248, 200)
@@ -111,7 +110,6 @@ time_until_fall = 0.5
 
 [node name="BokenPlatform3" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(296, 200)
-time_until_fall = 0.5
 
 [node name="BokenPlatform4" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(344, 200)
@@ -119,7 +117,6 @@ time_until_fall = 0.5
 
 [node name="BokenPlatform5" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(392, 200)
-time_until_fall = 0.5
 
 [node name="BokenPlatform6" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(440, 200)
@@ -127,7 +124,6 @@ time_until_fall = 0.5
 
 [node name="BokenPlatform7" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(488, 200)
-time_until_fall = 0.5
 
 [node name="BokenPlatform8" parent="." instance=ExtResource("10_3ah3h")]
 position = Vector2(248, 120)
