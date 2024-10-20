@@ -15,6 +15,8 @@ const CLOSED_FRAME = 1
 @onready var closed_light: PointLight2D = $ClosedLight
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+var player_has_entered = false
+
 func _ready() -> void:
 	set_open(is_open)
 
@@ -49,6 +51,14 @@ func _on_enter_area_body_entered(body: Node2D) -> void:
 		
 	if not is_open:
 		return
-		
+	
+	# Fix: Sonst kann man man Level skippen, wenn man die Collision
+	# doppelt auslöst. 🤬
+	if player_has_entered == true:
+		return	
+	
+	player_has_entered = true
+	
+	
 	audio_stream_player_2d.play()
 	player_entered.emit()
