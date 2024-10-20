@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=22 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://data/walls_tileset.tres" id="1_n3m2q"]
-[ext_resource type="PackedScene" uid="uid://fv3eyg47wquk" path="res://scenes/music.tscn" id="1_ww0ri"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
 [ext_resource type="AudioStream" uid="uid://dkovva17nl04a" path="res://assets/audio/key_pickup.wav" id="2_nc8po"]
 [ext_resource type="PackedScene" uid="uid://du0su787317ah" path="res://scenes/level/level_1.tscn" id="2_rfnfc"]
@@ -39,8 +38,6 @@ size = Vector2(785, 98)
 [node name="Main" type="Node2D"]
 
 [node name="Sound" type="Node" parent="."]
-
-[node name="Music" parent="Sound" instance=ExtResource("1_ww0ri")]
 
 [node name="KeyPickup" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("2_nc8po")
@@ -101,6 +98,7 @@ level_folder_path = "res://scenes/level/"
 level_scenes = Array[PackedScene]([ExtResource("10_8t0sh"), ExtResource("2_rfnfc"), ExtResource("11_npv50"), ExtResource("12_5pvay"), ExtResource("14_uw3b1"), ExtResource("15_mjpv3")])
 
 [node name="Killzone" type="Area2D" parent="World"]
+collision_mask = 3
 script = ExtResource("11_g4yvf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Killzone"]

@@ -18,6 +18,7 @@ config/icon="res://assets/item_key.png"
 [autoload]
 
 Inventory="*res://scripts/inventory.gd"
+Music="*res://scenes/music.tscn"
 
 [display]
 
