@@ -1,7 +1,7 @@
 extends Control
 
 var main_menu := load("res://scenes/main_menu.tscn")
-@onready var speedrun_time: Label = $Panel/VBoxContainer/SpeedrunTime
+@onready var speedrun_time: Label = $Panel/VBoxContainer2/SpeedrunTime
 
 func _ready() -> void:
 	var circle := $CanvasLayer/TransitionCircle.material as ShaderMaterial
