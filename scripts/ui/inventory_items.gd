@@ -3,6 +3,8 @@ class_name InventoryItemUI
 extends Control
 
 
+
+
 func _ready() -> void:
 	Inventory.items_changed.connect(update_inventory_items)
 

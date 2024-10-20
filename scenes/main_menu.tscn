@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://lbxrsfjl1vw"]
+[gd_scene load_steps=17 format=4 uid="uid://lbxrsfjl1vw"]
 
 [ext_resource type="Theme" uid="uid://b65a6ydhitlq3" path="res://data/theme.tres" id="1_i6v7o"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_bj35f"]
@@ -9,7 +9,6 @@
 [ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="5_b8ax0"]
 [ext_resource type="Texture2D" uid="uid://dmiwhwqm3yjqq" path="res://assets/tilesets/entities_house.png" id="5_y540d"]
 [ext_resource type="Script" path="res://scripts/ui/volume_slider.gd" id="7_adftt"]
-[ext_resource type="PackedScene" uid="uid://fv3eyg47wquk" path="res://scenes/music.tscn" id="9_skttv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vxfj"]
 atlas = ExtResource("4_sm3sj")
@@ -214,7 +213,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Music" parent="." instance=ExtResource("9_skttv")]
 
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

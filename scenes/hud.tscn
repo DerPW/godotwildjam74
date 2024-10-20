@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsaqum4av307f"]
+[gd_scene load_steps=5 format=3 uid="uid://dsaqum4av307f"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_items.gd" id="1_8re3l"]
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_ik40b"]
+[ext_resource type="Theme" uid="uid://b65a6ydhitlq3" path="res://data/theme.tres" id="1_mondk"]
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="2_37wtb"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -9,6 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mondk")
+script = ExtResource("1_ik40b")
 
 [node name="InventoryItems" type="Control" parent="."]
 layout_mode = 1
@@ -16,3 +21,90 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_8re3l")
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_37wtb")
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -54.0
+offset_right = 62.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Control" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 14.0
+offset_right = 47.5
+offset_bottom = 36.0
+grow_horizontal = 2
+
+[node name="Minutes" type="Label" parent="PauseMenu/Panel/Timer"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 48.0
+offset_bottom = 23.0
+text = "00:"
+horizontal_alignment = 2
+
+[node name="Seconds" type="Label" parent="PauseMenu/Panel/Timer"]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 72.0
+offset_bottom = 23.0
+text = "00"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -31.5
+offset_right = 48.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Resume
+"
+
+[node name="ExitButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu
+"
+
+[connection signal="game_paused" from="PauseMenu" to="." method="_on_pause_menu_game_paused"]
+[connection signal="game_resumed" from="PauseMenu" to="." method="_on_pause_menu_game_resumed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ExitButton" to="PauseMenu" method="_on_exit_button_pressed"]

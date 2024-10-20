@@ -427,3 +427,11 @@ func _on_level_loader_level_started() -> void:
 	positions = []
 	follower.position = Vector2(-100, 100)
 	process_self = true
+
+
+func _on_hud_game_paused() -> void:
+	process_self = false
+
+
+func _on_hud_game_resumed() -> void:
+	process_self = true

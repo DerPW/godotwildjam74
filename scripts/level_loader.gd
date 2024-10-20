@@ -14,7 +14,8 @@ func _ready() -> void:
 	# load levels as packed scene from level folder
 	#level_scenes = _load_level_scenes(level_folder_path)
 	
-	# load first level
+	SpeedRunTimer.reset_timer()
+	SpeedRunTimer.start_timer()
 	_load_level(current_level)
 
 func _load_level_scenes(folder_path: String) -> Array:

@@ -116,3 +116,5 @@ shape = SubResource("RectangleShape2D_nf5jm")
 [connection signal="level_started" from="World/LevelLoader" to="World/God" method="_on_level_loader_level_started"]
 [connection signal="body_entered" from="World/Killzone" to="World/Killzone" method="_on_body_entered"]
 [connection signal="player_fell_to_their_death" from="World/Killzone" to="World/LevelLoader" method="_on_ghost_catched_player"]
+[connection signal="game_paused" from="CanvasLayer2/HUD" to="World/God" method="_on_hud_game_paused"]
+[connection signal="game_resumed" from="CanvasLayer2/HUD" to="World/God" method="_on_hud_game_resumed"]

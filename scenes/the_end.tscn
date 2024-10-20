@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dj4sl0ltes6k5"]
+[gd_scene load_steps=13 format=4 uid="uid://dudkdrf23okcu"]
 
 [ext_resource type="Theme" uid="uid://b65a6ydhitlq3" path="res://data/theme.tres" id="1_u2ntu"]
 [ext_resource type="Script" path="res://scripts/the_end.gd" id="2_sho8i"]
@@ -8,7 +8,6 @@
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="7_fmjmt"]
 [ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="8_7udmb"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="8_fgulj"]
-[ext_resource type="PackedScene" uid="uid://fv3eyg47wquk" path="res://scenes/music.tscn" id="9_7b5gk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rflxn"]
 font_size = 24
@@ -106,6 +105,24 @@ label_settings = SubResource("LabelSettings_rflxn")
 layout_mode = 2
 text = "Restart"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 14.0
+offset_right = 222.0
+offset_bottom = 64.0
+rotation = 0.275415
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+text = "It took you:"
+horizontal_alignment = 1
+
+[node name="SpeedrunTime" type="Label" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+text = "00:00.000"
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -133,8 +150,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Made for Godot Wild Jam 74"
 
-[node name="Music" parent="." instance=ExtResource("9_7b5gk")]
-
 [node name="God" parent="." instance=ExtResource("8_fgulj")]
 z_index = 1
 position = Vector2(240, 208)
@@ -161,6 +176,7 @@ scale = Vector2(2.21875, 2.0625)
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_y6kv6")
