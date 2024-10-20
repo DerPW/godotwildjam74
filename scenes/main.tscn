@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://bf7qpamhcemoe"]
+[gd_scene load_steps=23 format=4 uid="uid://bf7qpamhcemoe"]
 
 [ext_resource type="TileSet" uid="uid://eid1v56ko2s7" path="res://data/walls_tileset.tres" id="1_n3m2q"]
 [ext_resource type="PackedScene" uid="uid://fv3eyg47wquk" path="res://scenes/music.tscn" id="1_ww0ri"]
 [ext_resource type="PackedScene" uid="uid://dco800ys3l5wy" path="res://scenes/god.tscn" id="2_cbnwu"]
+[ext_resource type="AudioStream" uid="uid://dkovva17nl04a" path="res://assets/audio/key_pickup.wav" id="2_nc8po"]
 [ext_resource type="PackedScene" uid="uid://du0su787317ah" path="res://scenes/level/level_1.tscn" id="2_rfnfc"]
+[ext_resource type="Script" path="res://scenes/key_pickup.gd" id="3_jqxnc"]
 [ext_resource type="PackedScene" uid="uid://d01ty6yj1ons6" path="res://scenes/ghost.tscn" id="3_ssqcd"]
 [ext_resource type="Shader" path="res://shader/vignette.gdshader" id="5_aa2x8"]
 [ext_resource type="PackedScene" uid="uid://dd40ksagcfovn" path="res://scenes/camera.tscn" id="6_be08c"]
@@ -16,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dovn0pai5qjxf" path="res://scenes/level/level_2.tscn" id="11_npv50"]
 [ext_resource type="PackedScene" uid="uid://c3n51id4qmc6g" path="res://scenes/level/level_3.tscn" id="12_5pvay"]
 [ext_resource type="PackedScene" uid="uid://d04avii7cqnck" path="res://scenes/level/level_4.tscn" id="14_uw3b1"]
-[ext_resource type="PackedScene" uid="uid://cs0kq3cv1m4n8" path="res://scenes/level/level_5.tscn" id="15_mjpv3"]
+[ext_resource type="PackedScene" path="res://scenes/level/level_5.tscn" id="15_mjpv3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrexp"]
 shader = ExtResource("5_aa2x8")
@@ -36,7 +38,14 @@ size = Vector2(785, 98)
 
 [node name="Main" type="Node2D"]
 
-[node name="Music" parent="." instance=ExtResource("1_ww0ri")]
+[node name="Sound" type="Node" parent="."]
+
+[node name="Music" parent="Sound" instance=ExtResource("1_ww0ri")]
+
+[node name="KeyPickup" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("2_nc8po")
+bus = &"SFX"
+script = ExtResource("3_jqxnc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -70,6 +79,7 @@ position = Vector2(-96, 37)
 follower = NodePath("../Ghost")
 
 [node name="Ghost" parent="World" instance=ExtResource("3_ssqcd")]
+z_index = 1
 position = Vector2(-96, 107)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]

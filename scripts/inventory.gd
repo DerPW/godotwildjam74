@@ -1,6 +1,7 @@
 extends Node
 
 signal items_changed(items: Array[InventoryItem])
+signal item_added(item: InventoryItem)
 
 
 @export var items: Array[InventoryItem] = []
@@ -19,6 +20,7 @@ func add_item(item: InventoryItem) -> void:
 		return
 		
 	items.append(item)
+	item_added.emit(item)
 	items_changed.emit(items)
 
 func remove_item(item: InventoryItem):
