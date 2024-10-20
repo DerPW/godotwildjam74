@@ -176,7 +176,6 @@ scale = Vector2(2.21875, 2.0625)
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_y6kv6")
