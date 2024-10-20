@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhkilugsmedsn"]
+
+[ext_resource type="Script" path="res://scripts/switch.gd" id="1_60dme"]
+[ext_resource type="Texture2D" uid="uid://b44qpicnqn642" path="res://assets/switch_on_off.png" id="2_dqx6l"]
+[ext_resource type="AudioStream" uid="uid://cpp7k1xw6ac6b" path="res://assets/audio/switch.ogg" id="3_s42be"]
+[ext_resource type="AudioStream" uid="uid://bxkhbul7js15v" path="res://assets/audio/brick_sfx.mp3" id="4_v6n6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50ia2"]
+
+[node name="Switch" type="Node2D"]
+script = ExtResource("1_60dme")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dqx6l")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="ActivationArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
+shape = SubResource("RectangleShape2D_50ia2")
+
+[node name="LeverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s42be")
+volume_db = 16.0
+bus = &"SFX"
+
+[node name="BrickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_v6n6b")
+volume_db = -8.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="ActivationArea" to="." method="_on_activation_area_body_entered"]
