@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://lbxrsfjl1vw"]
+[gd_scene load_steps=18 format=4 uid="uid://lbxrsfjl1vw"]
 
 [ext_resource type="Theme" uid="uid://b65a6ydhitlq3" path="res://data/theme.tres" id="1_i6v7o"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_bj35f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://csfva73tgq5y" path="res://assets/tilesets/ghost.png" id="4_sm3sj"]
 [ext_resource type="Shader" path="res://shader/simeple_circle_transition.gdshader" id="5_b8ax0"]
 [ext_resource type="Texture2D" uid="uid://dmiwhwqm3yjqq" path="res://assets/tilesets/entities_house.png" id="5_y540d"]
+[ext_resource type="Script" path="res://scripts/ui/volume_slider.gd" id="7_adftt"]
 [ext_resource type="PackedScene" uid="uid://fv3eyg47wquk" path="res://scenes/music.tscn" id="9_skttv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vxfj"]
@@ -132,6 +133,40 @@ label_settings = SubResource("LabelSettings_rflxn")
 layout_mode = 2
 text = "Start"
 
+[node name="SoundOptions" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 129.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/SoundOptions"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicVolume" type="HSlider" parent="Panel/SoundOptions"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+script = ExtResource("7_adftt")
+bus_name = "Music"
+
+[node name="Label2" type="Label" parent="Panel/SoundOptions"]
+layout_mode = 2
+text = "Effects"
+
+[node name="EffectsVolume" type="HSlider" parent="Panel/SoundOptions"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+script = ExtResource("7_adftt")
+bus_name = "SFX"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -160,6 +195,7 @@ grow_vertical = 0
 text = "Made for Godot Wild Jam 74"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_y6kv6")
