@@ -3,8 +3,7 @@ extends Control
 signal game_paused
 signal game_resumed
 
-@onready var minutes: Label = $Panel/Timer/Minutes
-@onready var seconds: Label = $Panel/Timer/Seconds
+@onready var time: Label = $Panel/Timer/Time
 
 var is_paused = false
 
@@ -30,8 +29,7 @@ func _set_paused(value: bool) -> void:
 		game_paused.emit()
 		SpeedRunTimer.stop_timer()
 		
-		minutes.text = "%02d:" % SpeedRunTimer.minutes
-		seconds.text = "%02d" % SpeedRunTimer.seconds
+		time.text = "%02d:%02d.%03d" % [SpeedRunTimer.minutes, SpeedRunTimer.seconds, SpeedRunTimer.msec]
 		
 		
 	else:
