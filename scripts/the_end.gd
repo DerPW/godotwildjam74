@@ -1,7 +1,8 @@
 extends Control
 
 var main_menu := load("res://scenes/main_menu.tscn")
-@onready var speedrun_time: Label = $Panel/VBoxContainer2/SpeedrunTime
+@onready var speedrun_time: Label = $Panel/SpeedrunLabel/SpeedrunTime
+@onready var speedrun_label: VBoxContainer = $Panel/SpeedrunLabel
 
 func _ready() -> void:
 	var circle := $CanvasLayer/TransitionCircle.material as ShaderMaterial
@@ -10,6 +11,16 @@ func _ready() -> void:
 	tween.tween_property(circle, "shader_parameter/circle_size", 2, 1)
 	SpeedRunTimer.stop_timer()
 	speedrun_time.text = "%02d:%02d.%03d" % [SpeedRunTimer.minutes, SpeedRunTimer.seconds, SpeedRunTimer.msec]
+	
+	var label_tween := get_tree().create_tween()
+	
+	label_tween.set_ease(Tween.EASE_IN_OUT)
+	label_tween.tween_property(
+		speedrun_label, ^"scale", Vector2(1.05, 1.05), 0.5
+	)
+	label_tween.tween_property(speedrun_label, ^"scale", Vector2(1.0, 1.0), 0.5)
+	label_tween.set_loops()
+	
 
 func _load_main_menu_scene() -> void:
 	get_tree().change_scene_to_packed(main_menu)
