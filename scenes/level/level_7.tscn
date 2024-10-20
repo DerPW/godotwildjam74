@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="6_yd3tx"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="7_v11if"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="8_mw5g3"]
-[ext_resource type="PackedScene" uid="uid://bhkilugsmedsn" path="res://Switch.tscn" id="9_vtyaw"]
+[ext_resource type="PackedScene" uid="uid://bhkilugsmedsn" path="res://scenes/Switch.tscn" id="9_vtyaw"]
 [ext_resource type="PackedScene" uid="uid://drqq7qe6mnqx0" path="res://scenes/boken_platform.tscn" id="10_3ah3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ncw"]

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="6_uea6o"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="7_stvle"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="8_ok6wo"]
-[ext_resource type="PackedScene" uid="uid://bhkilugsmedsn" path="res://Switch.tscn" id="9_fm0w8"]
+[ext_resource type="PackedScene" uid="uid://bhkilugsmedsn" path="res://scenes/Switch.tscn" id="9_fm0w8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ncw"]
 texture = ExtResource("6_uea6o")
@@ -125,7 +125,7 @@ wall_to_add = Array[Vector2i]([Vector2i(12, 11), Vector2i(24, 11), Vector2i(1, 1
 wall_to_remove = Array[Vector2i]([Vector2i(17, 6), Vector2i(18, 6), Vector2i(19, 6)])
 
 [node name="Switch2" parent="." node_paths=PackedStringArray("walls_tilemap_layer") instance=ExtResource("9_fm0w8")]
-position = Vector2(40, 288)
+position = Vector2(56, 288)
 walls_tilemap_layer = NodePath("../Walls")
 wall_to_remove = Array[Vector2i]([Vector2i(33, 15), Vector2i(34, 15), Vector2i(35, 15)])
 

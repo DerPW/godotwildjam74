@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0y70cvq62u76" path="res://assets/tilesets/entities_dungeons.png" id="6_taj4o"]
 [ext_resource type="PackedScene" uid="uid://crokx0nfwsok0" path="res://scenes/candle.tscn" id="7_xjs72"]
 [ext_resource type="Shader" path="res://shader/godrays.gdshader" id="8_i303b"]
-[ext_resource type="PackedScene" uid="uid://bhkilugsmedsn" path="res://Switch.tscn" id="9_dxp0r"]
+[ext_resource type="PackedScene" uid="uid://bhkilugsmedsn" path="res://scenes/Switch.tscn" id="9_dxp0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ncw"]
 texture = ExtResource("6_taj4o")
@@ -60,7 +60,7 @@ item = ExtResource("3_yii2y")
 position = Vector2(48, 40)
 
 [node name="Door" parent="." instance=ExtResource("4_npgrb")]
-position = Vector2(24, 264)
+position = Vector2(16, 264)
 key = ExtResource("3_yii2y")
 
 [node name="Walls" type="TileMapLayer" parent="."]
